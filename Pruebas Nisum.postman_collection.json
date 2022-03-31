@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "9002ffb7-fca9-419d-89f9-31c3bf8f3d63",
+		"name": "Pruebas Nisum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"carlos\",\r\n    \"password\": \"$2a$10$nGXT5L/JFHr9jD1lEhd4p.RtLp0GEX7/xAlMnQZND5f50mVxFy29O\",\r\n    \"enabled\": true,\r\n    \"nombre\": \"carlos\",\r\n    \"apellido\": \"velez\",\r\n    \"email\": \"carlos999@gmail.com\",\r\n        \"roles\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"ROLES_USER\"\r\n            }\r\n             ],\r\n        \"telefono\": [{\r\n                \"number\": 6958325,\r\n                \"citycode\": 2,\r\n                \"contrycode\": 30\r\n                    }\r\n        ]\r\n        \r\n                \r\n                \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/usuarios/registrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autenticar App Externa y Usuario",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "frontendapp",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "carlos",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8090/api/security/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"security",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":3,\r\n    \"username\": \"carlos\",\r\n    \"password\": \"$2a$10$nGXT5L/JFHr9jD1lEhd4p.RtLp0GEX7/xAlMnQZND5f50mVxFy29O\",\r\n    \"enabled\": true,\r\n    \"nombre\": \"carlos\",\r\n    \"apellido\": \"Velez Casarrubia\",\r\n    \"email\": \"carlos999@gmail.com\",\r\n        \"roles\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"ROLES_USER\"\r\n            }\r\n             ],\r\n        \"telefono\": [{\r\n                \"number\": 600000000,\r\n                \"citycode\": 2,\r\n                \"contrycode\": 30\r\n                    }\r\n        ]\r\n        \r\n                \r\n                \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/usuarios/registrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios/search/buscar-username?nombre=carlos",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios",
+						"search",
+						"buscar-username"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "carlos"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
