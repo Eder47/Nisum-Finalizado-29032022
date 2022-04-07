@@ -6,7 +6,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.nisum.usuarioscommons.models.entity.Role;
-import com.nisum.usuarioscommons.models.entity.Usuarios;
+import com.nisum.usuarioscommons.models.entity.Usuario;
 
 
 @Configuration
@@ -14,7 +14,7 @@ public class RepositoryConfig implements RepositoryRestConfigurer{
 	
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-		config.exposeIdsFor(Usuarios.class, Role.class);
+		config.exposeIdsFor(Usuario.class, Role.class);
 	}
 	
 

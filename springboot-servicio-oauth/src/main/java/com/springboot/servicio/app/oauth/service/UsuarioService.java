@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.nisum.usuarioscommons.models.entity.Usuarios;
+import com.nisum.usuarioscommons.models.entity.Usuario;
 import com.springboot.servicio.app.oauth.clients.UsuarioFeignClient;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuarios usuario = client.findByUsername(username);
+		Usuario usuario = client.buscarUsuario(username);
 		if (usuario == null) {
 			log.info("Error en el login, No existe usuario '" + username + "' en el sistema");
 			throw new UsernameNotFoundException(
@@ -42,8 +42,8 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
 	}
 
 	@Override
-	public Usuarios findByUsername(String username) {
-		return client.findByUsername(username);
+	public Usuario findByUsername(String usuario) {
+		return client.buscarUsuario(usuario);
 	}
 	
 	

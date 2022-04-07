@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.nisum.usuarios.Dto.ErrorDto;
 import com.nisum.usuarios.utils.ExcepcionEmailExiste;
+import com.nisum.usuarios.utils.ExcepcionUsuarioExiste;
 import com.nisum.usuarios.utils.ExcepcionesEmail;
 
 
@@ -23,5 +24,12 @@ public class ControllerAdvice {
     	ErrorDto error = ErrorDto.builder().code(ex.getCode()).message(ex.getMessage()).build();
         return new ResponseEntity<>(error, ex.getStatus());
     }
+    
+    @ExceptionHandler(value = ExcepcionUsuarioExiste.class)
+    public ResponseEntity<ErrorDto> excepcionUsuarioExiste(ExcepcionUsuarioExiste ex){
+    	ErrorDto error = ErrorDto.builder().code(ex.getCode()).message(ex.getMessage()).build();
+        return new ResponseEntity<>(error, ex.getStatus());
+    }
+
 
 }

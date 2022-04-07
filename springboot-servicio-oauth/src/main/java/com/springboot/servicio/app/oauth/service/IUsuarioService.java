@@ -1,8 +1,8 @@
 package com.springboot.servicio.app.oauth.service;
-import com.nisum.usuarioscommons.models.entity.Usuarios;
+import com.nisum.usuarioscommons.models.entity.Usuario;
 
 public interface IUsuarioService {
 	
-	public Usuarios findByUsername(String nombre);
+	public Usuario findByUsername(String usuario);
 
 }
