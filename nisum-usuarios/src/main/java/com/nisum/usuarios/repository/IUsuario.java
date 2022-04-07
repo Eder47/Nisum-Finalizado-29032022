@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.nisum.usuarioscommons.models.entity.Usuario;
 
-public interface IUsuarioIngreso extends JpaRepository<Usuario, Long>{
+public interface IUsuario extends JpaRepository<Usuario, Long>{
 	
 	@Modifying
 	@Query("update Usuario u set u.ultimoIngreso = ?1 where u.id =?2")

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.nisum.usuarios.repository.IUsuarioIngreso;
+import com.nisum.usuarios.repository.IUsuario;
 import com.nisum.usuarios.service.IUsuarioService;
 import com.nisum.usuarios.utils.ExcepcionEmailExiste;
 import com.nisum.usuarios.utils.ExcepcionUsuarioExiste;
@@ -27,7 +27,7 @@ public class UsuariosServiciosImpl implements IUsuarioService {
 	Tiempo tiempo;
 
 	@Autowired
-	IUsuarioIngreso iUsuario;
+	IUsuario iUsuario;
 
 	@Autowired
 	Validaciones validaciones;
